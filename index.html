@@ -1,0 +1,188 @@
+<html>
+
+    <head>
+    
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,700" rel="stylesheet">
+    
+    </head>
+    
+    <body>
+
+        <style>
+
+            html {
+                background-color: red;
+            }
+            
+            body {
+                display: flex;
+                flex-direction: column;                
+                min-height: 100vh;
+                position: relative;
+                margin: 0;
+                background-color: aquamarine;
+            }
+
+            header {
+                background-color: #fff;
+                color: #11919d;
+                padding: 25px 65px;
+                font-size: 2em;
+                text-transform: uppercase;
+                font-family: 'Roboto', sans-serif;
+                font-weight: bold;
+                letter-spacing: 1px;
+            }
+            
+            nav.navHeader {
+                background-image: url(http://lorempixel.com/output/city-q-c-1821-938-1.jpg);
+                padding: 0;
+                background-size: cover;
+                height: 500px;
+            }
+
+            nav.navHeader #navLeftPanel {
+                width: 20%;
+                background-color: #00457C;
+                color: #fff;
+                float: left;
+                height: 100%;                
+            }
+
+            nav.navHeader #navLeftPanel #currIssueIndex {
+                font-size: 1.3em;
+                margin-top: 25px;
+                margin-bottom: 35px;
+                font-family: 'Roboto', sans-serif;
+                text-transform: uppercase;
+            }
+
+            
+            nav.navHeader #navLeftPanel div {
+                margin: 15px 15px;
+            }
+
+            nav.navHeader #navLeftPanel a {
+                color: #fff;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+            }            
+
+            
+            nav.navHeader #navRightPanel, nav.navHeader #navRightPanelBg {
+                width: 55%;                
+                color: #fff;
+                float: left;
+                margin: 0 0 0 10px;
+                height: 55%;
+            }            
+
+            nav.navHeader #navRightPanel {
+                position: relative;
+                z-index: 1;
+            }
+            
+            nav.navHeader #navRightPanelBg { 
+                background-color: 00457C;
+                position: relative;
+                margin-top: -275px;
+                z-index: 0;
+                opacity: 0.95;
+            }
+            
+            nav.navHeader h1, nav.navHeader h2 {
+                font-family: 'Roboto', sans-serif;
+                color: #fff;
+            }
+
+            nav.navHeader h1 {
+                font-family: 'Roboto Condensed', sans-serif;
+                margin: 0;
+                padding: 60px 15px 0 15px;    
+                text-transform: uppercase;
+            }
+            
+            nav.navHeader h2 {
+                font-size: 1em;
+                margin: 0;
+                padding: 5px 15px 25px 15px;
+            }
+            
+            .site-content {
+              flex: 1;
+            }            
+
+            footer {
+                text-align: center;
+                padding: 15px;
+                background-color: beige;
+                
+            }
+            
+        </style>
+
+        <header>
+        
+            Trendlines
+        
+        </header>
+        
+        <nav class="navHeader">
+
+            <div id="navLeftPanel">
+
+                <div id="currIssueIndex">
+                    Issue 1
+                </div>
+                
+                <a href="#"><div>
+                    100 Resilient Cities
+                </div></a>
+
+                <a href="#"><div>
+                    100 Resilient Cities
+                </div></a>                
+
+                <a href="#"><div>
+                    100 Resilient Cities
+                </div></a>                
+
+                <a href="#"><div>
+                    100 Resilient Cities
+                </div></a>                
+                
+                <a href="#"><div>
+                    100 Resilient Cities
+                </div></a>                
+                
+                <a href="#"><div>
+                    100 Resilient Cities
+                </div></a>                
+                                
+            </div>
+
+            <div id="navRightPanel">
+
+                <h1>Sharing Manufacturing Know-how</h1>
+                <h2>Rockefeller Foundation</h2>
+                
+            </div>
+
+            <div id="navRightPanelBg">
+                &nbsp;
+            </div>
+            
+        </nav>
+        
+        <div class="site-content">
+            Main Article Content        
+        </div>
+
+        <footer>
+            The footer area
+        </footer>
+        
+        
+    </body>
+    
+</html>
