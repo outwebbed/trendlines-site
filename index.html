@@ -2,8 +2,43 @@
 
     <head>
     
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,700" rel="stylesheet">
-    
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto+Condensed:400,700|Roboto:400,700" rel="stylesheet">
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+        
+        <script>
+
+            
+            $(document).ready(function(){
+                
+                $('a.nav_issue-2').on('click', function() {
+                    
+                    console.log('clicked');
+
+                    $('nav.navHeader').css('background-image', "url('images/manufacturing-1636390_1920-compressor.jpg')").fadeIn('500');
+                    
+                    /*
+                    $('nav.navHeader').fadeOut('500', function() {
+                    });
+                    */
+
+                })
+                                
+            })            
+            
+            function switchIssueNav(issue) {
+
+                $('#changeSlide').on('click', function() {
+                  $('.slideshow').fadeOut('500', function() {
+                    $(this).css('background-image', "url('images/manufacturing-1636390_1920-compressor.jpg')").fadeIn('500');
+                  });
+                })
+
+            }//end switchIssueNav
+            
+        </script>
+        
+        
     </head>
     
     <body>
@@ -11,7 +46,7 @@
         <style>
 
             html {
-                background-color: red;
+                background-color: #00457C;
             }
             
             body {
@@ -33,15 +68,16 @@
                 font-weight: bold;
                 letter-spacing: 1px;
             }
-            
+
             nav.navHeader {
-                background-image: url(http://lorempixel.com/output/city-q-c-1821-938-1.jpg);
                 padding: 0;
                 background-size: cover;
                 height: 500px;
             }
 
             nav.navHeader #navLeftPanel {
+                position: relative;
+                z-index: 1;
                 width: 20%;
                 background-color: #00457C;
                 color: #fff;
@@ -51,9 +87,9 @@
 
             nav.navHeader #navLeftPanel #currIssueIndex {
                 font-size: 1.3em;
-                margin-top: 25px;
+                margin-top: 35px;
                 margin-bottom: 35px;
-                font-family: 'Roboto', sans-serif;
+                font-family: 'Roboto Condensed', sans-serif;
                 text-transform: uppercase;
             }
 
@@ -65,59 +101,98 @@
             nav.navHeader #navLeftPanel a {
                 color: #fff;
                 text-decoration: none;
-                font-family: 'Roboto', sans-serif;
+                font-family: 'Roboto Condensed', sans-serif;
+                text-transform: uppercase;
+                font-weight: bold;                
             }            
 
+            nav.navHeader #navRightPanel {
+/*
+                background-image: url(images/new-york-668616_1920-compressor.jpg);
+                background-size: cover;
+*/
+                height: 100%;
+                width: 100%;
+            }
+
             
-            nav.navHeader #navRightPanel, nav.navHeader #navRightPanelBg {
+            #navRightPanelBg {
+                z-index: 0;
+                position: relative;
+            }        
+
+            #navRightPanelBg img {
+                margin-top: -500px;
+            }
+            
+            nav.navHeader #issueTitleBoxBg, #issueTitleBox {
                 width: 55%;                
                 color: #fff;
                 float: left;
                 margin: 0 0 0 10px;
                 height: 55%;
-            }            
-
-            nav.navHeader #navRightPanel {
-                position: relative;
-                z-index: 1;
             }
             
-            nav.navHeader #navRightPanelBg { 
-                background-color: 00457C;
+            nav.navHeader #navRightPanel #issueTitleBox {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            nav.navHeader #issueTitleBoxBg { 
+                background-color: #00457C;
                 position: relative;
                 margin-top: -275px;
-                z-index: 0;
+                z-index: 1;
                 opacity: 0.95;
             }
             
-            nav.navHeader h1, nav.navHeader h2 {
+            nav.navHeader #navRightPanel h1, nav.navHeader #navRightPanel h2 {
                 font-family: 'Roboto', sans-serif;
                 color: #fff;
             }
 
-            nav.navHeader h1 {
+            nav.navHeader #navRightPanel h1 {
+                text-align: left;
                 font-family: 'Roboto Condensed', sans-serif;
-                margin: 0;
-                padding: 60px 15px 0 15px;    
+                margin: 0 0 0 5%;
+                padding: 0;
                 text-transform: uppercase;
             }
             
-            nav.navHeader h2 {
-                font-size: 1em;
+            nav.navHeader #navRightPanel .h1Subhead {
+                clear: both;
+                float: none;
+                font-size: 0.75em;
                 margin: 0;
-                padding: 5px 15px 25px 15px;
+                padding: 0;
+                text-transform: none;
+                display: block;                
             }
             
             .site-content {
-              flex: 1;
+                flex: 1;
+                z-index: 1;
+                background-color: #fff;
+                padding: 25px 55px;
+                font-family: 'Roboto', sans-serif;
             }            
 
             footer {
                 text-align: center;
                 padding: 15px;
-                background-color: beige;
-                
+                color: #fff;
+                background-color: #11919d;
+                font-family: 'Roboto', sans-serif;
             }
+
+            @media screen and (min-width: 850px) {
+
+            }
+            
             
         </style>
 
@@ -132,54 +207,86 @@
             <div id="navLeftPanel">
 
                 <div id="currIssueIndex">
-                    Issue 1
+                    Issue 4
                 </div>
                 
-                <a href="#"><div>
+                <a class="nav_issue-1" href="#"><div>
                     100 Resilient Cities
                 </div></a>
 
-                <a href="#"><div>
-                    100 Resilient Cities
+                <a class="nav_issue-2" href="#"><div>
+                    An American Serengeti
                 </div></a>                
 
-                <a href="#"><div>
-                    100 Resilient Cities
+                <a class="nav_issue-3" href="#"><div>
+                    Naboisho Community Conservancy
                 </div></a>                
 
-                <a href="#"><div>
-                    100 Resilient Cities
+                <a class="nav_issue-4" href="#"><div>
+                    Refresh
                 </div></a>                
                 
-                <a href="#"><div>
-                    100 Resilient Cities
+                <a class="nav_issue-5" href="#"><div>
+                    Sharing Manufacturing Know-How
                 </div></a>                
                 
-                <a href="#"><div>
-                    100 Resilient Cities
+                <a class="nav_issue-6" href="#"><div>
+                    Women Harnessing Digital Technology
                 </div></a>                
                                 
             </div>
-
+            
             <div id="navRightPanel">
+                
+                <div id="issueTitleBox">
 
-                <h1>Sharing Manufacturing Know-how</h1>
-                <h2>Rockefeller Foundation</h2>
+                    <h1>
+                        Sharing Manufacturing Know-how
+                        <span class="h1Subhead">
+                        Rockefeller Foundation
+                        </span>
+                    </h1>        
+                                    
+                </div>
+
+                <div id="issueTitleBoxBg">
+                    &nbsp;
+                </div>                
                 
             </div>
-
-            <div id="navRightPanelBg">
-                &nbsp;
-            </div>
             
+            <div id="navRightPanelBg">
+                <img src="images/new-york-668616_1920-compressor.jpg" width="100%" />
+            </div>
+        
         </nav>
         
         <div class="site-content">
-            Main Article Content        
+
+            <p>
+            Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jícama salsify.
+            </p>
+
+            <p>
+            Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard.
+            </p>
+
+            <p>        
+            Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava bean mustard tigernut jícama green bean celtuce collard greens avocado quandong fennel gumbo black-eyed pea. Grape silver beet watercress potato tigernut corn groundnut. Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet rock melon radish asparagus spinach.
+            </p>
+
+            <p>
+            Beetroot water spinach okra water chestnut ricebean pea catsear courgette summer purslane. Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip chicory salsify pea sprouts fava bean. Dandelion zucchini burdock yarrow chickpea dandelion sorrel courgette turnip greens tigernut soybean radish artichoke wattle seed endive groundnut broccoli arugula.
+            </p>
+
+            <p>
+            Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea lettuce brussels sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory garlic bell pepper napa cabbage lettuce tomato kale arugula melon sierra leone bologi rutabaga tigernut. Sea lettuce gumbo grape kale kombu cauliflower salsify kohlrabi okra sea lettuce broccoli celery lotus root carrot winter purslane turnip greens garlic. Jícama garlic courgette coriander radicchio plantain scallion cauliflower fava bean desert raisin spring onion chicory bunya nuts. Sea lettuce water spinach gram fava bean leek dandelion silver beet eggplant bush tomato.            
+            </p>     
+            
         </div>
 
         <footer>
-            The footer area
+            Brought to you by Miguel & Mike
         </footer>
         
         
