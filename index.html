@@ -8,41 +8,41 @@
                 
         <script>
 
-            issuesObjsArray = [
+            issueStoriesObjsArray = [
 
                 {
-                "issueIndex": 0,
-                 "issue": "100 Resilient Cities", 
+                "issueStoryIndex": 0,
+                 "story": "100 Resilient Cities", 
                  "maker": "Rockefeller Foundation",
                  "img": "new-york-668616_1920-compressor.jpg"
                 },
                 {
-                "issueIndex": 1,
-                 "issue": "An American Serengeti", 
+                "issueStoryIndex": 1,
+                 "story": "An American Serengeti", 
                  "maker": "American Prairie Reserve",
                  "img": "africa-290434_1920-compressor.jpg"
                 },
                 {
-                "issueIndex": 2,
-                 "issue": "Naboisho Community Conservancy", 
+                "issueStoryIndex": 2,
+                 "story": "Naboisho Community Conservancy", 
                  "maker": "Basecamp Foundation",
                  "img": "main-image-5-naboisho-compressor.jpg"
                 },
                 {
-                "issueIndex": 3,
-                 "issue": "Refresh", 
+                "issueStoryIndex": 3,
+                 "story": "Refresh", 
                  "maker": "The Reinvestment Fund",
                  "img": "refresh-runner-beans-1835646_1920-compressor.jpg"
                 },
                 {
-                "issueIndex": 4,
-                 "issue": "Sharing Manufacturing Know-How", 
+                "issueStoryIndex": 4,
+                 "story": "Sharing Manufacturing Know-How", 
                  "maker": "Toyota Motor North America, Inc.",
                  "img": "manufacturing-1636390_1920-compressor.jpg"
                 },
                 {
-                "issueIndex": 5,
-                 "issue": "Women Harnessing Digital Technology", 
+                "issueStoryIndex": 5,
+                 "story": "Women Harnessing Digital Technology", 
                  "maker": "World Pulse",
                  "img": "tech-telescope-532989_1920-compressor.jpg"
                 },
@@ -57,15 +57,20 @@
                     var thisClass = $(this).attr('class');
                     console.log(thisClass);
 
-                    var classArr = thisClass.split("-");
-                    var clickedIssueIndex = classArr[1] - 1;
-                    console.log(clickedIssueIndex);
+                    //<a class="nav_story-1 selectedStory" href="#"><div>
+                    //This splitting of class value to get the story index
+                    //relies on first class value being nav_story-* etc...
+                    
+                    var classArrA = thisClass.split(" ");
+                    var classArrB = classArrA[0].split("-");
+                    var clickedIssueStoryIndex = classArrB[1] - 1;
+                    console.log(clickedIssueStoryIndex);
 
                     //swap in clicked issue title + maker
-                    $('#issueTitle').text(issuesObjsArray[clickedIssueIndex].issue);
+                    $('#issueTitle').text(issueStoriesObjsArray[clickedIssueStoryIndex].story);
                                           
                     //swap in clicked issue image
-                    $('#navRightPanelBg img').attr('src', "images/" + issuesObjsArray[clickedIssueIndex].img);
+                    $('#navRightPanelBg img').attr('src', "images/" + issueStoriesObjsArray[clickedIssueStoryIndex].img);
                     
                 })
                                 
@@ -205,7 +210,7 @@
                 height: 100%;                
             }
 
-            nav.navHeader #navLeftPanel #currIssueIndex {
+            nav.navHeader #navLeftPanel #currStoryIndex {
                 font-size: 1.3em;
                 margin-top: 35px;
                 margin-bottom: 35px;
@@ -218,13 +223,17 @@
             }
 
             nav.navHeader #navLeftPanel a {
-                color: #fff;
+                color: darkgrey;
                 text-decoration: none;
                 font-family: 'Roboto Condensed', sans-serif;
                 text-transform: uppercase;
                 font-weight: bold;                
-            }            
+            }
 
+            nav.navHeader #navLeftPanel a.selectedStory {
+                color: #fff;
+            }
+            
             nav.navHeader #navRightPanel {
                 height: 100%;
                 width: 100%;
@@ -345,31 +354,31 @@
 
                 <div id="navLeftPanel">
 
-                    <div id="currIssueIndex">
-                        Issue 4
+                    <div id="currStoryIndex">
+                        Issue 1
                     </div>
 
-                    <a class="nav_issue-1" href="#"><div>
+                    <a class="nav_story-1 selectedStory" href="#"><div>
                         100 Resilient Cities
                     </div></a>
 
-                    <a class="nav_issue-2" href="#"><div>
+                    <a class="nav_story-2" href="#"><div>
                         An American Serengeti
                     </div></a>                
 
-                    <a class="nav_issue-3" href="#"><div>
+                    <a class="nav_story-3" href="#"><div>
                         Naboisho Community Conservancy
                     </div></a>                
 
-                    <a class="nav_issue-4" href="#"><div>
+                    <a class="nav_story-4" href="#"><div>
                         Refresh
                     </div></a>                
 
-                    <a class="nav_issue-5" href="#"><div>
+                    <a class="nav_story-5" href="#"><div>
                         Sharing Manufacturing Know-How
                     </div></a>                
 
-                    <a class="nav_issue-6" href="#"><div>
+                    <a class="nav_story-6" href="#"><div>
                         Women Harnessing Digital Technology
                     </div></a>                
 
