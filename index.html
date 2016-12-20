@@ -57,16 +57,14 @@
                 },
                 
             ];
-            
-            var issuesObj = {};
-            
+                        
             $(document).ready(function(){
                 
                 $('#navLeftPanel a').on('click', function() {           
 
                     linkIndex = 1;
                     clickedStoriesObjsArray.forEach(function(element) {
-                        console.log(element.clicked);
+                        
                         //nav_story-1 selectedStory                        
                         if(element.clicked) {
                             clickedClass = ".nav_story-" + linkIndex;
@@ -74,10 +72,10 @@
                             element.clicked = false;
                         }//end if
                         linkIndex++;
+
                     });                        
                     
                     var thisClass = $(this).attr('class');
-                    console.log(thisClass);
 
                     //<a class="nav_story-1 selectedStory" href="#"><div>
                     //This splitting of class value to get the story index
@@ -92,8 +90,6 @@
                     //clickedClass = ".nav_story-" + linkIndex;
                     //clickedIssueStoryIndex
                     
-                    //console.log(clickedIssueStoryIndex);
-
                     //swap in clicked issue title + maker
                     $('#issueTitle').text(issueStoriesObjsArray[clickedIssueStoryIndex].story);
                     $('#issueMaker').text(issueStoriesObjsArray[clickedIssueStoryIndex].maker);
@@ -333,12 +329,17 @@
                 text-transform: none;
                 font-weight: normal;
             }                
+
+            nav.navHeader #navRightPanel a#readMoreLink {
+                color: #fff;
+                text-decoration: none;
+            }            
             
             .site-content {
                 flex: 1;
                 position: relative;
                 background-color: #fff;
-                padding: 25px 22%;
+                padding: 55px 22%;
                 font-family: 'Merriweather', serif;
                 color: #333;
                 line-height: 1.5em;
@@ -431,9 +432,9 @@
                             <div id="issueMaker" class="h1Subhead">
                                 Rockefeller Foundation
                             </div>
-                            <div class="h1Readmore">
+                            <a id="readMoreLink" href="javascript:void(0);"><div class="h1Readmore">
                                 Learn More &raquo;
-                            </div>
+                            </div></a>
                         </h1>        
 
                     </div>
@@ -453,24 +454,8 @@
             <div class="site-content">
 
                 <p>
-                Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jícama salsify.
+                    This is intro text regarding the site overall. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jícama salsify.
                 </p>
-
-                <p>
-                Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard.
-                </p>
-
-                <p>        
-                Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava bean mustard tigernut jícama green bean celtuce collard greens avocado quandong fennel gumbo black-eyed pea. Grape silver beet watercress potato tigernut corn groundnut. Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet rock melon radish asparagus spinach.
-                </p>
-
-                <p>
-                Beetroot water spinach okra water chestnut ricebean pea catsear courgette summer purslane. Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip chicory salsify pea sprouts fava bean. Dandelion zucchini burdock yarrow chickpea dandelion sorrel courgette turnip greens tigernut soybean radish artichoke wattle seed endive groundnut broccoli arugula.
-                </p>
-
-                <p>
-                Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea lettuce brussels sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory garlic bell pepper napa cabbage lettuce tomato kale arugula melon sierra leone bologi rutabaga tigernut. Sea lettuce gumbo grape kale kombu cauliflower salsify kohlrabi okra sea lettuce broccoli celery lotus root carrot winter purslane turnip greens garlic. Jícama garlic courgette coriander radicchio plantain scallion cauliflower fava bean desert raisin spring onion chicory bunya nuts. Sea lettuce water spinach gram fava bean leek dandelion silver beet eggplant bush tomato.            
-                </p>     
 
             </div>
 
