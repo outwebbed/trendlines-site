@@ -52,7 +52,7 @@
             var issuesObj = {};
             
             $(document).ready(function(){
-                                            
+                
                 $('#navLeftPanel a').on('click', function() {           
                     var thisClass = $(this).attr('class');
                     console.log(thisClass);
@@ -60,7 +60,11 @@
                     var classArr = thisClass.split("-");
                     var clickedIssueIndex = classArr[1] - 1;
                     console.log(clickedIssueIndex);
-                
+
+                    //swap in clicked issue title + maker
+                    $('#issueTitle').text(issuesObjsArray[clickedIssueIndex].issue);
+                                          
+                    //swap in clicked issue image
                     $('#navRightPanelBg img').attr('src', "images/" + issuesObjsArray[clickedIssueIndex].img);
                     
                 })
@@ -85,6 +89,43 @@
     <body>
 
         <style>
+            /* preload main issue header images */
+            #preload-01 { 
+                height: 0px;
+                margin: 0;
+                display: none;
+                background: url(images/new-york-668616_1920-compressor.jpg) no-repeat -9999px -9999px; 
+            }
+            #preload-02 { 
+                height: 0px;
+                margin: 0;
+                display: none;
+                background: url(images/africa-290434_1920-compressor.jpg) no-repeat -9999px -9999px; 
+            }
+            #preload-03 { 
+                height: 0px;
+                margin: 0;
+                display: none;
+                background: url(images/main-image-5-naboisho-compressor.jpg) no-repeat -9999px -9999px; 
+            }
+            #preload-04 { 
+                height: 0px;
+                margin: 0;
+                display: none;
+                background: url(images/refresh-runner-beans-1835646_1920-compressor.jpg) no-repeat -9999px -9999px;
+            }
+            #preload-05 { 
+                height: 0px;
+                margin: 0;
+                display: none;
+                background: url(images/manufacturing-1636390_1920-compressor.jpg) no-repeat -9999px -9999px; 
+            }
+            #preload-06 { 
+                height: 0px;
+                margin: 0;
+                display: none;
+                background: url(images/tech-telescope-532989_1920-compressor.jpg) no-repeat -9999px -9999px; 
+            }
 
             html {
                 background-color: #00457C;
@@ -339,10 +380,10 @@
                     <div id="issueTitleBox">
 
                         <h1>
-                            100 Resilient Cities
-                            <span class="h1Subhead">
+                            <div id="issueTitle">100 Resilient Cities</div>
+                            <div id="issueMaker" class="h1Subhead">
                             Rockefeller Foundation
-                            </span>
+                            </div>
                         </h1>        
 
                     </div>
@@ -388,6 +429,15 @@
             </footer>
 
         </div>
+
+        <!-- img preload -->
+        <div id="preload-01">&nbsp;</div>
+        <div id="preload-02">&nbsp;</div>
+        <div id="preload-03">&nbsp;</div>
+        <div id="preload-04">&nbsp;</div>
+        <div id="preload-05">&nbsp;</div>
+        <div id="preload-06">&nbsp;</div>
+
         
     </body>
     
