@@ -8,6 +8,15 @@
                 
         <script>
 
+            clickedStoriesObjsArray = [
+                {"clicked":true},
+                {"clicked":false},
+                {"clicked":false},
+                {"clicked":false},
+                {"clicked":false},            
+                {"clicked":false}
+            ];
+            
             issueStoriesObjsArray = [
 
                 {
@@ -54,6 +63,19 @@
             $(document).ready(function(){
                 
                 $('#navLeftPanel a').on('click', function() {           
+
+                    linkIndex = 1;
+                    clickedStoriesObjsArray.forEach(function(element) {
+                        console.log(element.clicked);
+                        //nav_story-1 selectedStory                        
+                        if(element.clicked) {
+                            clickedClass = ".nav_story-" + linkIndex;
+                            $(clickedClass).removeClass("selectedStory");
+                            element.clicked = false;
+                        }//end if
+                        linkIndex++;
+                    });                        
+                    
                     var thisClass = $(this).attr('class');
                     console.log(thisClass);
 
@@ -64,11 +86,18 @@
                     var classArrA = thisClass.split(" ");
                     var classArrB = classArrA[0].split("-");
                     var clickedIssueStoryIndex = classArrB[1] - 1;
-                    console.log(clickedIssueStoryIndex);
+                    clickedStoriesObjsArray[clickedIssueStoryIndex].clicked = true;
+                    
+                    $("." + thisClass).addClass("selectedStory");
+                    //clickedClass = ".nav_story-" + linkIndex;
+                    //clickedIssueStoryIndex
+                    
+                    //console.log(clickedIssueStoryIndex);
 
                     //swap in clicked issue title + maker
                     $('#issueTitle').text(issueStoriesObjsArray[clickedIssueStoryIndex].story);
-                                          
+                    $('#issueMaker').text(issueStoriesObjsArray[clickedIssueStoryIndex].maker);
+                    
                     //swap in clicked issue image
                     $('#navRightPanelBg img').attr('src', "images/" + issueStoriesObjsArray[clickedIssueStoryIndex].img);
                     
@@ -297,6 +326,13 @@
                 text-transform: none;
                 display: block;                
             }
+
+            nav.navHeader #navRightPanel .h1Readmore {
+                bottom: 0;
+                font-size: 0.55em;
+                text-transform: none;
+                font-weight: normal;
+            }                
             
             .site-content {
                 flex: 1;
@@ -389,9 +425,14 @@
                     <div id="issueTitleBox">
 
                         <h1>
-                            <div id="issueTitle">100 Resilient Cities</div>
+                            <div id="issueTitle">
+                                100 Resilient Cities
+                            </div>
                             <div id="issueMaker" class="h1Subhead">
-                            Rockefeller Foundation
+                                Rockefeller Foundation
+                            </div>
+                            <div class="h1Readmore">
+                                Learn More &raquo;
                             </div>
                         </h1>        
 
