@@ -92,17 +92,16 @@
                     $('#issueTitle').text(issueStoriesObjsArray[clickedIssueStoryIndex].story);
                     $('#issueMaker').text(issueStoriesObjsArray[clickedIssueStoryIndex].maker);
                     
-                    $("#navRightPanelBg img").fadeTo(250, 0, function() { 
+                    $("#navRightPanelBg img").stop().fadeTo(250, 0, function() { 
                         $(this).attr("src", "images/" + issueStoriesObjsArray[clickedIssueStoryIndex].img); 
-                        $(this).fadeTo(250, 1);
+                        $(this).stop().fadeTo(250, 1);
                     });                    
                     
                 })
                                 
             })            
                     
-        </script>
-        
+        </script>        
         
     </head>
     
