@@ -8,13 +8,36 @@
         
         <script>
 
+            issueImages = [
+                'africa-290434_1920-compressor.jpg',
+                'main-image-5-naboisho-compressor.jpg',
+                'manufacturing-1636390_1920-compressor.jpg',
+                'new-york-668616_1920-compressor.jpg',
+                'refresh-runner-beans-1835646_1920-compressor.jpg',
+                'tech-telescope-532989_1920-compressor.jpg'
+            ];            
             
             $(document).ready(function(){
-                
-                $('a.nav_issue-2').on('click', function() {
-                    
-                    console.log('clicked');
 
+                console.log(issueImages[0]);
+                
+                console.log($('#navRightPanelBg img').attr('src'));     
+                            
+                $('#navLeftPanel a').on('click', function() {           
+
+                    // .nav_issue-2
+                    var thisClass = $(this).attr('class');
+                    console.log(thisClass);
+
+                    var classArr = thisClass.split("-");
+                    var clickedIssue = classArr[1];
+                    console.log(clickedIssue);
+                    
+                    $('#navRightPanelBg img').attr('src', "images/" + issueImages[clickedIssue]);
+
+                    
+                    //$(this).attr('src')
+                    
                     $('nav.navHeader').css('background-image', "url('images/manufacturing-1636390_1920-compressor.jpg')").fadeIn('500');
                     
                     /*
@@ -79,6 +102,7 @@
                 position: relative;
                 z-index: 1;
                 width: 20%;
+                min-width: 155px;
                 background-color: #00457C;
                 color: #fff;
                 float: left;
@@ -122,6 +146,7 @@
             }        
 
             #navRightPanelBg img {
+                min-width: 775px;
                 margin-top: -500px;
             }
             
@@ -177,8 +202,10 @@
                 flex: 1;
                 z-index: 1;
                 background-color: #fff;
-                padding: 25px 55px;
-                font-family: 'Roboto', sans-serif;
+                padding: 25px 22%;
+                font-family: 'Merriweather', serif;
+                color: #333;
+                line-height: 1.5em;
             }            
 
             footer {
