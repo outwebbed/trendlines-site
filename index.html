@@ -5,17 +5,62 @@
         <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto+Condensed:400,700|Roboto:400,700" rel="stylesheet">
 
         <script src="js/jquery-3.1.1.min.js"></script>
-        
+                
         <script>
 
             issueImages = [
+                'new-york-668616_1920-compressor.jpg',
                 'africa-290434_1920-compressor.jpg',
                 'main-image-5-naboisho-compressor.jpg',
-                'manufacturing-1636390_1920-compressor.jpg',
-                'new-york-668616_1920-compressor.jpg',
                 'refresh-runner-beans-1835646_1920-compressor.jpg',
+                'manufacturing-1636390_1920-compressor.jpg',
                 'tech-telescope-532989_1920-compressor.jpg'
             ];            
+
+            issuesObjsArray = [
+
+                {
+                "issueIndex": 0,
+                 "issue": "100 Resilient Cities", 
+                 "maker": "Rockefeller Foundation",
+                 "img": "new-york-668616_1920-compressor.jpg"
+                },
+                {
+                "issueIndex": 1,
+                 "issue": "An American Serengeti", 
+                 "maker": "American Prairie Reserve",
+                 "img": "africa-290434_1920-compressor.jpg"
+                },
+                {
+                "issueIndex": 2,
+                 "issue": "Naboisho Community Conservancy", 
+                 "maker": "Basecamp Foundation",
+                 "img": "main-image-5-naboisho-compressor.jpg"
+                },
+                {
+                "issueIndex": 3,
+                 "issue": "Refresh", 
+                 "maker": "The Reinvestment Fund",
+                 "img": "refresh-runner-beans-1835646_1920-compressor.jpg"
+                },
+                {
+                "issueIndex": 4,
+                 "issue": "Sharing Manufacturing Know-How", 
+                 "maker": "Toyota Motor North America, Inc.",
+                 "img": "manufacturing-1636390_1920-compressor.jpg"
+                },
+                {
+                "issueIndex": 5,
+                 "issue": "Women Harnessing Digital Technology", 
+                 "maker": "World Pulse",
+                 "img": "tech-telescope-532989_1920-compressor.jpg"
+                },
+                
+            ];
+            
+            console.log(issuesObjsArray[0].issue);
+            
+            var issuesObj = {};
             
             $(document).ready(function(){
 
@@ -30,21 +75,13 @@
                     console.log(thisClass);
 
                     var classArr = thisClass.split("-");
-                    var clickedIssue = classArr[1];
-                    console.log(clickedIssue);
-                    
-                    $('#navRightPanelBg img').attr('src', "images/" + issueImages[clickedIssue]);
-
-                    
-                    //$(this).attr('src')
-                    
+                    var clickedIssueIndex = classArr[1] - 1;
+                    console.log(clickedIssueIndex);
+                
+                    $('#navRightPanelBg img').attr('src', "images/" + issuesObjsArray[clickedIssueIndex].img);
+                                                            
                     $('nav.navHeader').css('background-image', "url('images/manufacturing-1636390_1920-compressor.jpg')").fadeIn('500');
                     
-                    /*
-                    $('nav.navHeader').fadeOut('500', function() {
-                    });
-                    */
-
                 })
                                 
             })            
@@ -78,14 +115,20 @@
                 min-height: 100vh;
                 position: relative;
                 margin: 0;
-                background-color: aquamarine;
+                background-color: #fff;
             }
 
+            #mainContainer {
+                max-width: 1000px;
+                margin: 0 auto;                
+                position: relative;
+            }
+            
             header {
                 background-color: #fff;
                 color: #11919d;
                 padding: 25px 65px;
-                font-size: 2em;
+                font-size: 2.5em;
                 text-transform: uppercase;
                 font-family: 'Roboto', sans-serif;
                 font-weight: bold;
@@ -101,7 +144,7 @@
             nav.navHeader #navLeftPanel {
                 position: relative;
                 z-index: 1;
-                width: 20%;
+                width: 21%;
                 min-width: 155px;
                 background-color: #00457C;
                 color: #fff;
@@ -116,10 +159,9 @@
                 font-family: 'Roboto Condensed', sans-serif;
                 text-transform: uppercase;
             }
-
             
             nav.navHeader #navLeftPanel div {
-                margin: 15px 15px;
+                margin: 15px 25px;
             }
 
             nav.navHeader #navLeftPanel a {
@@ -131,14 +173,9 @@
             }            
 
             nav.navHeader #navRightPanel {
-/*
-                background-image: url(images/new-york-668616_1920-compressor.jpg);
-                background-size: cover;
-*/
                 height: 100%;
                 width: 100%;
             }
-
             
             #navRightPanelBg {
                 z-index: 0;
@@ -151,10 +188,9 @@
             }
             
             nav.navHeader #issueTitleBoxBg, #issueTitleBox {
-                width: 55%;                
+                width: 45%;                
                 color: #fff;
-                float: left;
-                margin: 0 0 0 10px;
+                margin: 0 0 0 22%;
                 height: 55%;
             }
             
@@ -182,10 +218,12 @@
 
             nav.navHeader #navRightPanel h1 {
                 text-align: left;
+                font-size: 1.90em;
                 font-family: 'Roboto Condensed', sans-serif;
                 margin: 0 0 0 5%;
                 padding: 0;
                 text-transform: uppercase;
+                line-height: 1.2em;
             }
             
             nav.navHeader #navRightPanel .h1Subhead {
@@ -200,12 +238,13 @@
             
             .site-content {
                 flex: 1;
-                z-index: 1;
+                position: relative;
                 background-color: #fff;
                 padding: 25px 22%;
                 font-family: 'Merriweather', serif;
                 color: #333;
                 line-height: 1.5em;
+                font-size: 0.75em;
             }            
 
             footer {
@@ -223,99 +262,102 @@
             
         </style>
 
-        <header>
-        
-            Trendlines
-        
-        </header>
-        
-        <nav class="navHeader">
+        <div id="mainContainer">
 
-            <div id="navLeftPanel">
+            <header>
 
-                <div id="currIssueIndex">
-                    Issue 4
-                </div>
-                
-                <a class="nav_issue-1" href="#"><div>
-                    100 Resilient Cities
-                </div></a>
+                Trendlines
 
-                <a class="nav_issue-2" href="#"><div>
-                    An American Serengeti
-                </div></a>                
-
-                <a class="nav_issue-3" href="#"><div>
-                    Naboisho Community Conservancy
-                </div></a>                
-
-                <a class="nav_issue-4" href="#"><div>
-                    Refresh
-                </div></a>                
-                
-                <a class="nav_issue-5" href="#"><div>
-                    Sharing Manufacturing Know-How
-                </div></a>                
-                
-                <a class="nav_issue-6" href="#"><div>
-                    Women Harnessing Digital Technology
-                </div></a>                
-                                
-            </div>
+            </header>
             
-            <div id="navRightPanel">
-                
-                <div id="issueTitleBox">
+            <nav class="navHeader">
 
-                    <h1>
-                        Sharing Manufacturing Know-how
-                        <span class="h1Subhead">
-                        Rockefeller Foundation
-                        </span>
-                    </h1>        
-                                    
+                <div id="navLeftPanel">
+
+                    <div id="currIssueIndex">
+                        Issue 4
+                    </div>
+
+                    <a class="nav_issue-1" href="#"><div>
+                        100 Resilient Cities
+                    </div></a>
+
+                    <a class="nav_issue-2" href="#"><div>
+                        An American Serengeti
+                    </div></a>                
+
+                    <a class="nav_issue-3" href="#"><div>
+                        Naboisho Community Conservancy
+                    </div></a>                
+
+                    <a class="nav_issue-4" href="#"><div>
+                        Refresh
+                    </div></a>                
+
+                    <a class="nav_issue-5" href="#"><div>
+                        Sharing Manufacturing Know-How
+                    </div></a>                
+
+                    <a class="nav_issue-6" href="#"><div>
+                        Women Harnessing Digital Technology
+                    </div></a>                
+
                 </div>
 
-                <div id="issueTitleBoxBg">
-                    &nbsp;
-                </div>                
-                
+                <div id="navRightPanel">
+
+                    <div id="issueTitleBox">
+
+                        <h1>
+                            Sharing Manufacturing Know-how
+                            <span class="h1Subhead">
+                            Rockefeller Foundation
+                            </span>
+                        </h1>        
+
+                    </div>
+
+                    <div id="issueTitleBoxBg">
+                        &nbsp;
+                    </div>                
+
+                </div>
+
+                <div id="navRightPanelBg">
+                    <img src="images/new-york-668616_1920-compressor.jpg" width="100%" />
+                </div>
+
+            </nav>
+
+            <div class="site-content">
+
+                <p>
+                Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jícama salsify.
+                </p>
+
+                <p>
+                Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard.
+                </p>
+
+                <p>        
+                Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava bean mustard tigernut jícama green bean celtuce collard greens avocado quandong fennel gumbo black-eyed pea. Grape silver beet watercress potato tigernut corn groundnut. Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet rock melon radish asparagus spinach.
+                </p>
+
+                <p>
+                Beetroot water spinach okra water chestnut ricebean pea catsear courgette summer purslane. Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip chicory salsify pea sprouts fava bean. Dandelion zucchini burdock yarrow chickpea dandelion sorrel courgette turnip greens tigernut soybean radish artichoke wattle seed endive groundnut broccoli arugula.
+                </p>
+
+                <p>
+                Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea lettuce brussels sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory garlic bell pepper napa cabbage lettuce tomato kale arugula melon sierra leone bologi rutabaga tigernut. Sea lettuce gumbo grape kale kombu cauliflower salsify kohlrabi okra sea lettuce broccoli celery lotus root carrot winter purslane turnip greens garlic. Jícama garlic courgette coriander radicchio plantain scallion cauliflower fava bean desert raisin spring onion chicory bunya nuts. Sea lettuce water spinach gram fava bean leek dandelion silver beet eggplant bush tomato.            
+                </p>     
+
             </div>
-            
-            <div id="navRightPanelBg">
-                <img src="images/new-york-668616_1920-compressor.jpg" width="100%" />
-            </div>
-        
-        </nav>
-        
-        <div class="site-content">
 
-            <p>
-            Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jícama salsify.
-            </p>
+            <footer>
+                Brought to you by Miguel & Mike
+            </footer>
 
-            <p>
-            Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard.
-            </p>
-
-            <p>        
-            Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava bean mustard tigernut jícama green bean celtuce collard greens avocado quandong fennel gumbo black-eyed pea. Grape silver beet watercress potato tigernut corn groundnut. Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet rock melon radish asparagus spinach.
-            </p>
-
-            <p>
-            Beetroot water spinach okra water chestnut ricebean pea catsear courgette summer purslane. Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip chicory salsify pea sprouts fava bean. Dandelion zucchini burdock yarrow chickpea dandelion sorrel courgette turnip greens tigernut soybean radish artichoke wattle seed endive groundnut broccoli arugula.
-            </p>
-
-            <p>
-            Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea lettuce brussels sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory garlic bell pepper napa cabbage lettuce tomato kale arugula melon sierra leone bologi rutabaga tigernut. Sea lettuce gumbo grape kale kombu cauliflower salsify kohlrabi okra sea lettuce broccoli celery lotus root carrot winter purslane turnip greens garlic. Jícama garlic courgette coriander radicchio plantain scallion cauliflower fava bean desert raisin spring onion chicory bunya nuts. Sea lettuce water spinach gram fava bean leek dandelion silver beet eggplant bush tomato.            
-            </p>     
-            
         </div>
-
-        <footer>
-            Brought to you by Miguel & Mike
-        </footer>
-        
         
     </body>
     
