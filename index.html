@@ -87,30 +87,20 @@
                     clickedStoriesObjsArray[clickedIssueStoryIndex].clicked = true;
                     
                     $("." + thisClass).addClass("selectedStory");
-                    //clickedClass = ".nav_story-" + linkIndex;
-                    //clickedIssueStoryIndex
                     
                     //swap in clicked issue title + maker
                     $('#issueTitle').text(issueStoriesObjsArray[clickedIssueStoryIndex].story);
                     $('#issueMaker').text(issueStoriesObjsArray[clickedIssueStoryIndex].maker);
                     
-                    //swap in clicked issue image
-                    $('#navRightPanelBg img').attr('src', "images/" + issueStoriesObjsArray[clickedIssueStoryIndex].img);
+                    $("#navRightPanelBg img").fadeTo(250, 0, function() { 
+                        $(this).attr("src", "images/" + issueStoriesObjsArray[clickedIssueStoryIndex].img); 
+                        $(this).fadeTo(250, 1);
+                    });                    
                     
                 })
                                 
             })            
-            
-            function switchIssueNav(issue) {
-
-                $('#changeSlide').on('click', function() {
-                  $('.slideshow').fadeOut('500', function() {
-                    $(this).css('background-image', "url('images/manufacturing-1636390_1920-compressor.jpg')").fadeIn('500');
-                  });
-                })
-
-            }//end switchIssueNav
-            
+                    
         </script>
         
         
@@ -222,6 +212,7 @@
                 padding: 0;
                 background-size: cover;
                 height: 500px;
+                background-color: #00457C;
             }
 
             nav.navHeader #navLeftPanel {
@@ -265,6 +256,7 @@
             }
             
             #navRightPanelBg {
+                background-color: #00457C;
                 z-index: 0;
                 position: relative;
             }        
